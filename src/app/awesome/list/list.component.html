@@ -1,0 +1,31 @@
+<div>
+  <button class="btn btn-primary mt-3" routerLink="/awesome/create">Create</button>
+</div>
+<div class="card mt-2">
+  <h5 class="card-header">My Awesome List</h5>
+  <div class="card-body">
+    <table class="table">
+      <thead class="thead-dark">
+      <tr>
+        <th scope="col">Tag</th>
+        <th style="width: 30%" scope="col">Url</th>
+        <th scope="col">Descreption</th>
+        <th scope="col">
+        </th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let awesome of listAwesome;let i =index">
+        <th scope="row">{{awesome.tag}}</th>
+<!--        <td>{{awesome.tag}}</td>-->
+        <td>{{awesome.url}}</td>
+        <td>{{awesome.descriptions}}</td>
+        <td>
+          <button class="btn btn-dark mr-2" [routerLink]="['/awesome',awesome.id]">edit</button>
+<!--          <button class="btn btn-danger" (click)="delete(awesome.id)">Delete</button>-->
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
