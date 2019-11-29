@@ -1,27 +1,27 @@
 <div class="card mt-2">
-  <h5 class="card-header">Create new awesome</h5>
+  <h5 class="card-header">Update Awesome</h5>
   <div class="card-body">
-    <form [formGroup]="updateAweSomeForm">
+    <form [formGroup]="updateAweSomeForm" (ngSubmit)="update()">
       <table style="width: 80%">
         <tr class="form-group">
           <td><label>Tag</label></td>
-          <td><input type="text" class="form-control" formControlName="tag"></td>
+          <td><input type="text" class="form-control m-2" formControlName="tag"></td>
         </tr>
         <tr class="form-group ">
           <td><label>Url</label></td>
-          <td><input type="text" class="form-control" formControlName="url"></td>
+          <td><input type="text" class="form-control  m-2" formControlName="url"></td>
         </tr>
         <tr class="form-group mt-3">
           <td><label>Descriptions</label></td>
-          <td><textarea class="form-control" formControlName="descriptions"></textarea>
+          <td><textarea class="form-control m-2" formControlName="descriptions"></textarea>
           </td>
         </tr>
         <tr>
           <td></td>
           <td>
-            <button class="btn btn-primary">Update</button>
-            <button class="btn btn-dark ml-2" routerLink="/awesome">Cancel</button>
-            <button class="btn btn-danger  offset-7">Remove</button>
+            <button class="btn btn-primary m-2">Update</button>
+            <button class="btn btn-dark m-2" routerLink="/awesome">Cancel</button>
+            <button class="btn btn-danger  offset-6" (click)="delete()">Remove</button>
           </td>
         </tr>
       </table>

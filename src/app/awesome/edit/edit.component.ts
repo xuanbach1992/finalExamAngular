@@ -16,10 +16,11 @@ export class EditComponent implements OnInit {
     descriptions: [''],
   });
   index = this.ActiveRouter.snapshot.paramMap.get('id');
+
   constructor(private formBuilder: FormBuilder,
               private awesomeService: AwesomeService,
-              private router: Router,
-              private ActiveRouter: ActivatedRoute) {
+              private ActiveRouter: ActivatedRoute,
+              private router: Router) {
   }
 
   ngOnInit() {
@@ -28,12 +29,22 @@ export class EditComponent implements OnInit {
         tag: res.tag,
         url: res.url,
         descriptions: res.descriptions,
-      })
-      ;
+      });
     });
   }
 
-  update() {
+  delete() {
+    if (confirm('Are you sure?')) {
+      this.awesomeService.deleteSuccess(+this.index).subscribe((result: IAwesome) => {
+        return this.router.navigate(['/awesome']);
+      });
+    }
+  }
 
+  update() {
+    const NewAwesome = this.updateAweSomeForm.value;
+    this.awesomeService.updateSuccess(+this.index, NewAwesome).subscribe((res: IAwesome) => {
+      return this.router.navigate(['/awesome']);
+    });
   }
 }
