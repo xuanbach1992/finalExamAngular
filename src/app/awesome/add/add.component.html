@@ -1,25 +1,32 @@
 <div class="card mt-2">
   <h5 class="card-header">Create new awesome</h5>
   <div class="card-body">
-    <form>
+    <form [formGroup]="addAwesomeForm" (ngSubmit)="create()">
       <table style="width: 80%">
         <tr class="form-group">
-          <td><label>Tag</label></td>
-          <td><input type="text" class="form-control"></td>
+          <td>Tag</td>
+          <td><label>
+          </label></td>
         </tr>
         <tr class="form-group ">
-          <td><label>Url</label></td>
-          <td><input type="text" class="form-control"></td>
+          <td>Url</td>
+          <td><label>
+            <input type="text" class="form-control m-2" formControlName="url">
+          </label></td>
         </tr>
         <tr class="form-group mt-3">
-          <td><label>Descriptions</label></td>
-          <td><textarea class="form-control"></textarea>
+          <td>Descriptions</td>
+          <td><label>
+            <textarea class="form-control m-2" formControlName="descriptions"></textarea>
+          </label>
           </td>
         </tr>
         <tr>
           <td></td>
           <td>
-            <button class="btn btn-primary">Create</button></td>
+            <button class="btn btn-primary m-2">Create</button>
+            <button class="btn btn-dark m-2" routerLink="/awesome">Cancel</button>
+          </td>
         </tr>
       </table>
     </form>
